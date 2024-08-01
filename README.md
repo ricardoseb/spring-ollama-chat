@@ -16,19 +16,19 @@ This project demonstrates the integration of Spring AI with Ollama, utilizing th
 Before you begin, ensure you have met the following requirements:
 - Java JDK 22
 - Maven
-- Ollama installed and running on your system
+- [Ollama](https://ollama.com/download) installed and running on your system
 - Llava model downloaded and available in Ollama
 
 ## Installation
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/ricardoseb/spring-ollama-chat.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd your-repo-name
+   cd spring-ollama-chat
    ```
 
 3. Build the project:
