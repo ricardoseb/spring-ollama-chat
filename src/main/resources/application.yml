@@ -1,0 +1,22 @@
+file:
+  upload-dir: ./uploads
+spring:
+  ai:
+    vectorstore:
+      redis:
+        uri: ${REDIS}
+        index: faqs
+        prefix: "faq:"
+        initialize-schema: true
+    ollama:
+      chat:
+        model: llama3.1:latest
+#        model: llava:13b
+  application:
+    name: spring-ollama-chat
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  thymeleaf:
+    cache: false
