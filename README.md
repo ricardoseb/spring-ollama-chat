@@ -1,4 +1,4 @@
-# Spring AI with Ollama and Llava
+# Spring AI - Analyzes pdf files and images
 
 This project demonstrates the integration of Spring AI with Ollama, utilizing the Llava model for AI-powered functionalities.
 
