@@ -11,7 +11,8 @@ spring:
     ollama:
       chat:
         model: llama3.1:latest
-#        model: llava:13b
+        options:
+          temperature: 0.2
   application:
     name: spring-ollama-chat
   servlet:

@@ -1,4 +1,4 @@
-# Spring AI - Analyzes pdf files and images
+# Spring AI - Analyzes pdf files and images for free and without limits
 
 This project demonstrates the integration of Spring AI with Ollama, utilizing the Llava model for AI-powered functionalities.
 
@@ -14,10 +14,14 @@ This project demonstrates the integration of Spring AI with Ollama, utilizing th
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-- Java JDK 22
-- Maven
+
+- 8 GB Ram, 16 GB+ preferred
+- Java 22 recommended
+- Maven version 3.9.0 or higher (Ideally installed for command line use)
 - [Ollama](https://ollama.com/download) installed and running on your system
-- Llava model downloaded and available in Ollama
+- Llava model downloaded and available in Ollama for image analysis
+- Llama3.1 model downloaded and available in Ollama for general knowledge
+- [Redis Cloud](https://app.redislabs.com/#/)
 
 ## Installation
 
@@ -38,12 +42,13 @@ Before you begin, ensure you have met the following requirements:
 
 ## Configuration
 
-1. Open `application.properties` (or `application.yml`) and configure the Ollama endpoint:
+1. Set up the Redis URI environment variable: Open `Edit Configurations...` and configure the required environment variable.
+2. This project is pre-configured for Ollama models. If you need to set up any other model, open the application.properties (or application.yml) file and configure the desired model there.
    ```
-   spring.ai.ollama.model=llava:13b
+   spring.ai.ollama.model=desiredModel
    ```
 
-2. Adjust any other settings as needed for your specific use case.
+3. Adjust any other settings as needed for your specific use case.
 
 ## Usage
 
@@ -58,7 +63,6 @@ Describe how to run and use your application. For example:
 
 ## Features
 
-List and briefly describe the main features of your project. For example:
 - Image analysis using Llava model
 - Natural language processing capabilities
 - Integration with Spring AI for seamless AI operations

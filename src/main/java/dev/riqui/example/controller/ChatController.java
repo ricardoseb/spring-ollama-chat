@@ -2,16 +2,16 @@ package dev.riqui.example.controller;
 
 import dev.riqui.example.model.Message;
 import dev.riqui.example.service.ChatService;
+import dev.riqui.example.util.ExtensionFile;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.Objects;
 
 /**
  * @author ricardoquiroga on 01-08-24
@@ -33,20 +33,26 @@ public class ChatController {
     public String ask(@RequestParam("question") String question,
                       @RequestParam("file") MultipartFile file,
                       Model model) {
-        String response = "Unsupported file";
-        if (file.isEmpty()) {
-            log.info("File is empty");
-            response = chatService.chatWithoutUsingVectorDB(question);
-            model.addAttribute("message", new Message(question, response));
-            return "result";
-
-        } else if (Objects.requireNonNull(file.getOriginalFilename()).endsWith(".pdf")) {
-            log.info("File is PDF");
-            response = chatService.chatUsingVectorDB(question, file);
-            model.addAttribute("message", new Message(question, response));
-            return "result";
+        String response;
+        String originalFilename = file.getOriginalFilename();
+        if (originalFilename != null && !originalFilename.isEmpty()) {
+            if (originalFilename.endsWith(MimeTypeUtils.IMAGE_JPEG.getSubtype()) || originalFilename.endsWith(MimeTypeUtils.IMAGE_PNG.getSubtype())) {
+                log.info("The uploaded file is a image");
+                response = chatService.chatWithoutUsingVectorDB(question, file);
+                model.addAttribute("message", new Message(question, response));
+                return "result";
+            } else if (originalFilename.endsWith(ExtensionFile.PDF.getValue())) {
+                log.info("The uploaded file is a PDF");
+                response = chatService.chatUsingVectorDB(question, file);
+                model.addAttribute("message", new Message(question, response));
+                return "result";
+            } else {
+                response = "Unsupported file, please try again with a valid extension file like .pdf, .jpeg or .png";
+                model.addAttribute("message", new Message(question, response));
+                return "result";
+            }
         }
-        log.info("File is not PDF");
+        response = chatService.chat(question);
         model.addAttribute("message", new Message(question, response));
         return "result";
 
