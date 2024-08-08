@@ -17,7 +17,7 @@ Before you begin, ensure you have met the following requirements:
 
 - 8 GB Ram, 16 GB or + preferred
 - [Java 22](https://jdk.java.net/22/) recommended
-- IDE [IntelliJ IDEA](https://www.jetbrains.com/idea/download)
+- IDE [IntelliJ IDEA](https://www.jetbrains.com/idea/download) recommended
 - [Maven](https://maven.apache.org/download.cgi) version 3.9.0 or higher (Ideally installed for command line use)
 - [Ollama](https://ollama.com/download) installed and running on your system
 - Llava model downloaded and available in Ollama for image analysis
