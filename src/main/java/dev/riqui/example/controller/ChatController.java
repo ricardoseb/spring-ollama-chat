@@ -36,7 +36,8 @@ public class ChatController {
         String response;
         String originalFilename = file.getOriginalFilename();
         if (originalFilename != null && !originalFilename.isEmpty()) {
-            if (originalFilename.endsWith(MimeTypeUtils.IMAGE_JPEG.getSubtype()) || originalFilename.endsWith(MimeTypeUtils.IMAGE_PNG.getSubtype())) {
+            if (originalFilename.endsWith(MimeTypeUtils.IMAGE_JPEG.getSubtype())
+                    || originalFilename.endsWith(MimeTypeUtils.IMAGE_PNG.getSubtype())) {
                 log.info("The uploaded file is a image");
                 response = chatService.chatWithoutUsingVectorDB(question, file);
                 model.addAttribute("message", new Message(question, response));

@@ -54,9 +54,7 @@ public class ChatService {
         UserMessage userMessage;
         MimeType mimeType = file.getOriginalFilename().endsWith(MimeTypeUtils.IMAGE_PNG.getSubtype()) ?
                 MimeTypeUtils.IMAGE_PNG : MimeTypeUtils.IMAGE_JPEG;
-        log.info("Mime type: {}", mimeType);
         Resource resource = fileStorageService.getStoredResource(file);
-        log.info("URL: {}", resource);
         userMessage = new UserMessage(question,
                 List.of(new Media(mimeType, resource)));
         ChatResponse response = chatModel.call(

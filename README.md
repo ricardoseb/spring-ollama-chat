@@ -15,9 +15,9 @@ This project demonstrates the integration of Spring AI with Ollama, utilizing th
 
 Before you begin, ensure you have met the following requirements:
 
-- 8 GB Ram, 16 GB+ preferred
-- Java 22 recommended
-- Maven version 3.9.0 or higher (Ideally installed for command line use)
+- 8 GB Ram, 16 GB or + preferred
+- [Java 22](https://jdk.java.net/22/) recommended
+- [Maven](https://maven.apache.org/download.cgi) version 3.9.0 or higher (Ideally installed for command line use)
 - [Ollama](https://ollama.com/download) installed and running on your system
 - Llava model downloaded and available in Ollama for image analysis
 - Llama3.1 model downloaded and available in Ollama for general knowledge
