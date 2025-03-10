@@ -1,6 +1,6 @@
 # Spring AI - Analyzes pdf files and images for free and without limits
 
-This project demonstrates the integration of Spring AI with Ollama, utilizing the Llava model for AI-powered functionalities.
+This project demonstrates the integration of Spring AI with Ollama, utilizing the Llama model for AI-powered functionalities.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
